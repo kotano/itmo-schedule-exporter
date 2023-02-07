@@ -1,6 +1,6 @@
 # Itmo schedule exporter
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-ts-hpab8a)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/itmo-schedule-exporter)
 
 ## Steps
 
