@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { createEvents } from 'ics';
+
+const filename = 'schedule.ics';
 
 const getParsedTime = (date) => [
   date.getFullYear(),
@@ -11,7 +14,6 @@ const getParsedTime = (date) => [
 
 const getEvents = (response) => {
   if (!response) return;
-  console.log(response);
   return response.data
     .filter((day) => day.lessons.length !== 0)
     .map((studyDay) =>
@@ -51,19 +53,12 @@ const App: React.FC = () => {
         {
           headers: {
             Authorization: `${token}`,
+            'accept-language': 'ru',
           },
         }
       );
       const data = await response.json();
       const events = getEvents(data);
-      console.log('events', events);
-      // const events = data.map(({ start_time, end_time, name, room }) => ({
-      //   start: new Date(start_time),
-      //   end: new Date(end_time),
-      //   title: name,
-      //   description: room,
-      // }));
-      const filename = 'schedule.ics';
       const { error, value } = await createEvents(events);
       if (error) throw error;
       const blob = new File([value], filename, {
