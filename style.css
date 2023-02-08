@@ -1,3 +1,11 @@
-h1, p {
+:root {
+  --indigo-600: hsl(218, 59%, 29%);
+  --indigo-400: hsl(218, 59%, 50%);
+  --indigo-700: hsl(218, 59%, 16%);
+  --indigo-500: hsl(218, 59%, 38%);
+}
+
+h1,
+p {
   font-family: Lato;
 }

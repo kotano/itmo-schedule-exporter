@@ -2,16 +2,11 @@
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/itmo-schedule-exporter)
 
-## Steps
+This project is a web application for generating an ICS (iCalendar) file for a user's schedule from ITMO University's MyITMO portal. The generated file can be imported into most calendar applications, including Google Calendar, Apple Calendar, and Microsoft Outlook.
 
-- [ ] Configure [lib](https://github.com/nwcell/ics.js)
-- [ ] Acquire token
-- [ ] Add authorization header
-- [ ] Make request to [url](https://my.itmo.ru/api/schedule/schedule/personal?date_start=2023-02-06&date_end=2023-02-12)
-- [ ] Parse schedule
-- [ ] Generate ics file
-- [ ] Download
-- [ ] Go to Google Calendar import [settings](https://calendar.google.com/calendar/u/0/r/settings/export)
-- [ ] Select calendar
-- [ ] Select file
-- [ ] Press import
+## Features
+
+- User can specify a start and end date for their schedule
+- User can input their ITMO University's MyITMO portal authorization token
+- The app fetches the schedule data from the API and generates an ICS file
+- The ICS file can be downloaded and imported into a calendar application

@@ -61,11 +61,11 @@ const App: React.FC = () => {
       const events = getEvents(data);
       const { error, value } = await createEvents(events);
       if (error) throw error;
-      const blob = new File([value], filename, {
+      const file = new File([value], filename, {
         type: 'text/calendar;charset=utf-8',
       });
       const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
+      link.href = window.URL.createObjectURL(file);
       link.download = filename;
       link.click();
     } catch (error) {
@@ -75,38 +75,95 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <form>
-        <div>
-          <label htmlFor="startDate">Start Date:</label>
-          <input
-            type="date"
-            id="startDate"
-            value={startDate?.toISOString().split('T')[0]}
-            onChange={(e) => setStartDate(new Date(e.target.value))}
-          />
-        </div>
-        <div>
-          <label htmlFor="endDate">End Date:</label>
-          <input
-            type="date"
-            id="endDate"
-            value={endDate?.toISOString().split('T')[0]}
-            onChange={(e) => setEndDate(new Date(e.target.value))}
-          />
-        </div>
-        <div>
-          <label htmlFor="token">Token:</label>
-          <input
-            type="text"
-            id="token"
-            value={token}
-            onChange={(e) => setToken(e.target.value)}
-          />
-        </div>
-        <button type="button" onClick={handleDownload}>
+      <div className="mx-auto w-full max-w-sm">
+        <form>
+          <div className="flex items-center mt-4">
+            <label
+              htmlFor="startDate"
+              className="text-gray-700 font-medium pr-2"
+            >
+              Start Date:
+            </label>
+            <input
+              type="date"
+              id="startDate"
+              value={startDate?.toISOString().split('T')[0]}
+              onChange={(e) => setStartDate(new Date(e.target.value))}
+              className="bg-gray-200 border border-gray-300 rounded p-2 w-full"
+            />
+          </div>
+          <div className="flex items-center mt-4">
+            <label htmlFor="endDate" className="text-gray-700 font-medium pr-2">
+              End Date:
+            </label>
+            <input
+              type="date"
+              id="endDate"
+              value={endDate?.toISOString().split('T')[0]}
+              onChange={(e) => setEndDate(new Date(e.target.value))}
+              className="bg-gray-200 border border-gray-300 rounded p-2 w-full"
+            />
+          </div>
+          <div className="flex items-center mt-4">
+            <label htmlFor="token" className="text-gray-700 font-medium pr-2">
+              Token:
+            </label>
+            <input
+              type="text"
+              id="token"
+              value={token}
+              onChange={(e) => setToken(e.target.value)}
+              className="bg-gray-200 border border-gray-300 rounded p-2 w-full"
+            />
+            <a target="_blank" href="https://my.itmo.ru/schedule">
+              <button
+                type="button"
+                className="bg-indigo-500 hover:bg-indigo-400 text-white font-medium px-4 rounded ml-2"
+              >
+                Get token
+              </button>
+            </a>
+          </div>
+        </form>
+        <button
+          type="button"
+          onClick={handleDownload}
+          className="bg-red-500 hover:bg-red-400 text-white font-medium py-2 px-4 mt-4 rounded"
+        >
           Download
         </button>
-      </form>
+        <div className="mt-4">
+          <a
+            target="_blank"
+            href="https://calendar.google.com/calendar/u/0/r/settings/export"
+          >
+            <button className="bg-indigo-500 hover:bg-indigo-400 text-white font-medium py-2 px-4 rounded">
+              Go to Google Calendar
+            </button>
+          </a>
+        </div>
+
+        <div className="mt-4 text-gray-700 font-medium">
+          <p>Usage Info:</p>
+          <p>1. Enter start date and end date</p>
+          <p>
+            2. Acquire access token from authorization header from requests on{' '}
+            <a
+              href="https://my.itmo.ru/schedule"
+              target="_blank"
+              className="text-indigo-500 hover:text-indigo-400"
+            >
+              https://my.itmo.ru/schedule
+            </a>
+          </p>
+          <p>3. Enter token in the Token input field</p>
+          <p>4. Press the "Download" button</p>
+          <p>
+            5. Go to Google Calendar and import the generated .ics file by
+            clicking on the "Go to Google Calendar" button
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
