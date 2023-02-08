@@ -162,6 +162,16 @@ const App: React.FC = () => {
             5. Go to Google Calendar and import the generated .ics file by
             clicking on the "Go to Google Calendar" button
           </p>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/qUDZW00croU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
