@@ -16,6 +16,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "webpack-cli": "latest",
     "react-scripts": "latest"
   }
 }
