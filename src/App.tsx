@@ -60,7 +60,7 @@ const App: React.FC = () => {
       const data = await response.json();
       const events = getEvents(data);
       const { error, value } = await createEvents(events);
-      if (error) throw error;
+      if (error || !value) throw error;
       const file = new File([value], filename, {
         type: 'text/calendar;charset=utf-8',
       });
@@ -168,9 +168,9 @@ const App: React.FC = () => {
             height="315"
             src="https://www.youtube.com/embed/qUDZW00croU"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
