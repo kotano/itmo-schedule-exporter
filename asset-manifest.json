@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/itmo-schedule-exporter/static/js/main.1a65c6bc.js",
+    "index.html": "/itmo-schedule-exporter/index.html",
+    "static/media/index.cjs": "/itmo-schedule-exporter/static/media/index.88d9c658b5ebd0b9ee47.cjs",
+    "main.1a65c6bc.js.map": "/itmo-schedule-exporter/static/js/main.1a65c6bc.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.1a65c6bc.js"
+  ]
+}
