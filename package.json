@@ -1,6 +1,6 @@
 {
   "name": "react-ts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "homepage": "https://kotano.github.io/itmo-schedule-exporter",
   "dependencies": {
